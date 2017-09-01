@@ -1,6 +1,7 @@
 package guru.springframework.recipe.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Recipe {
@@ -17,6 +18,9 @@ public class Recipe {
     private String url;
     private String directions;
 //    private Difficulty difficulty;    // TODO: 02.09.2017 add
+
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "recipe")
+    private Set<Ingredient> recipes;
 
     @Lob
     private Byte[] image;
@@ -86,6 +90,14 @@ public class Recipe {
 
     public void setDirections(String directions) {
         this.directions = directions;
+    }
+
+    public Set<Ingredient> getRecipes() {
+        return recipes;
+    }
+
+    public void setRecipes(Set<Ingredient> recipes) {
+        this.recipes = recipes;
     }
 
     public Byte[] getImage() {
