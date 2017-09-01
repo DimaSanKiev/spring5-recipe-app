@@ -1,4 +1,4 @@
-package guru.springframework.spring5recipeapp;
+package guru.springframework.recipe;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
