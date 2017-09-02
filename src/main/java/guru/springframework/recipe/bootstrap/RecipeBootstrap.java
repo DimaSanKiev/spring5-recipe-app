@@ -165,19 +165,18 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
                 "Many thanks to my friend Sue Robison who gave me the bones of this recipe to play with. Enjoy!\n" +
                 "Read more: http://www.simplyrecipes.com/recipes/cucumber_soup/#ixzz4rWHbFoOB");
 
-        chillyCucumberSoupNotes.setRecipe(chillySoupRecipe);
         chillySoupRecipe.setNotes(chillyCucumberSoupNotes);
 
         // Add ingredients
-        chillySoupRecipe.getIngredients().add(new Ingredient("large cucumbers", new BigDecimal(2), eachUom, chillySoupRecipe));
-        chillySoupRecipe.getIngredients().add(new Ingredient("chopped onion (white, red, or green)", new BigDecimal(2), tableSpoonUom, chillySoupRecipe));
-        chillySoupRecipe.getIngredients().add(new Ingredient("buttermilk", new BigDecimal(0.5), cupUom, chillySoupRecipe));
-        chillySoupRecipe.getIngredients().add(new Ingredient("sour cream", new BigDecimal(0.25), cupUom, chillySoupRecipe));
-        chillySoupRecipe.getIngredients().add(new Ingredient("rice vinegar", new BigDecimal(1), tableSpoonUom, chillySoupRecipe));
-        chillySoupRecipe.getIngredients().add(new Ingredient("olive oil", new BigDecimal(1), tableSpoonUom, chillySoupRecipe));
-        chillySoupRecipe.getIngredients().add(new Ingredient("fresh dill, chopped", new BigDecimal(2), tableSpoonUom, chillySoupRecipe));
-        chillySoupRecipe.getIngredients().add(new Ingredient("salt", new BigDecimal(1), teaSpoonUom, chillySoupRecipe));
-        chillySoupRecipe.getIngredients().add(new Ingredient("black pepper", new BigDecimal(1), pinchUom, chillySoupRecipe));
+        chillySoupRecipe.addIngredient(new Ingredient("large cucumbers", new BigDecimal(2), eachUom));
+        chillySoupRecipe.addIngredient(new Ingredient("chopped onion (white, red, or green)", new BigDecimal(2), tableSpoonUom));
+        chillySoupRecipe.addIngredient(new Ingredient("buttermilk", new BigDecimal(0.5), cupUom));
+        chillySoupRecipe.addIngredient(new Ingredient("sour cream", new BigDecimal(0.25), cupUom));
+        chillySoupRecipe.addIngredient(new Ingredient("rice vinegar", new BigDecimal(1), tableSpoonUom));
+        chillySoupRecipe.addIngredient(new Ingredient("olive oil", new BigDecimal(1), tableSpoonUom));
+        chillySoupRecipe.addIngredient(new Ingredient("fresh dill, chopped", new BigDecimal(2), tableSpoonUom));
+        chillySoupRecipe.addIngredient(new Ingredient("salt", new BigDecimal(1), teaSpoonUom));
+        chillySoupRecipe.addIngredient(new Ingredient("black pepper", new BigDecimal(1), pinchUom));
 
         // Add categories
         chillySoupRecipe.getCategories().add(italianCategory);
@@ -213,22 +212,21 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
                 "We defrost shrimp in salty cold water because soaking in water is the fastest way to defrost shrimp, and if you soak the shrimp in plain water it will leach out the natural salt in the shrimp. The salty water helps the shrimp maintain their natural salt.\n" +
                 "Read more: http://www.simplyrecipes.com/recipes/grilled_shrimp_tacos_with_mango_avocado_salsa/#ixzz4rXn3zRyQ");
 
-        grilledShrimpTacosNotes.setRecipe(shrimpTacosRecipe);
         shrimpTacosRecipe.setNotes(grilledShrimpTacosNotes);
 
         // Add ingredients
-        shrimpTacosRecipe.getIngredients().add(new Ingredient("pound shrimp (16/20 count) peeled and deveined (frozen is fine)", new BigDecimal(1), poundUom, shrimpTacosRecipe));
-        shrimpTacosRecipe.getIngredients().add(new Ingredient("water", new BigDecimal(4), cupUom, shrimpTacosRecipe));
-        shrimpTacosRecipe.getIngredients().add(new Ingredient("kosher salt", new BigDecimal(1), tableSpoonUom, shrimpTacosRecipe));
-        shrimpTacosRecipe.getIngredients().add(new Ingredient("cubed ice", new BigDecimal(1), cupUom, shrimpTacosRecipe));
-        shrimpTacosRecipe.getIngredients().add(new Ingredient("ripe but still firm mango, peeled and cut into small cubes", new BigDecimal(1), eachUom, shrimpTacosRecipe));
-        shrimpTacosRecipe.getIngredients().add(new Ingredient("ripe avocado, seeded, peeled, and cut into small cubes", new BigDecimal(1), eachUom, shrimpTacosRecipe));
-        shrimpTacosRecipe.getIngredients().add(new Ingredient("finely chopped red onion", new BigDecimal(1), tableSpoonUom, shrimpTacosRecipe));
-        shrimpTacosRecipe.getIngredients().add(new Ingredient("fresh jalapeño pepper (less or more to taste), minced", new BigDecimal(0.5), eachUom, shrimpTacosRecipe));
-        shrimpTacosRecipe.getIngredients().add(new Ingredient("fresh lime or lemon juice", new BigDecimal(3), tableSpoonUom, shrimpTacosRecipe));
-        shrimpTacosRecipe.getIngredients().add(new Ingredient("kosher salt", new BigDecimal(0.5), teaSpoonUom, shrimpTacosRecipe));
-        shrimpTacosRecipe.getIngredients().add(new Ingredient("chopped fresh cilantro leaves (optional)", new BigDecimal(2), tableSpoonUom, shrimpTacosRecipe));
-        shrimpTacosRecipe.getIngredients().add(new Ingredient("corn or flour tortillas", new BigDecimal(11), eachUom, shrimpTacosRecipe));
+        shrimpTacosRecipe.addIngredient(new Ingredient("pound shrimp (16/20 count) peeled and deveined (frozen is fine)", new BigDecimal(1), poundUom));
+        shrimpTacosRecipe.addIngredient(new Ingredient("water", new BigDecimal(4), cupUom));
+        shrimpTacosRecipe.addIngredient(new Ingredient("kosher salt", new BigDecimal(1), tableSpoonUom));
+        shrimpTacosRecipe.addIngredient(new Ingredient("cubed ice", new BigDecimal(1), cupUom));
+        shrimpTacosRecipe.addIngredient(new Ingredient("ripe but still firm mango, peeled and cut into small cubes", new BigDecimal(1), eachUom));
+        shrimpTacosRecipe.addIngredient(new Ingredient("ripe avocado, seeded, peeled, and cut into small cubes", new BigDecimal(1), eachUom));
+        shrimpTacosRecipe.addIngredient(new Ingredient("finely chopped red onion", new BigDecimal(1), tableSpoonUom));
+        shrimpTacosRecipe.addIngredient(new Ingredient("fresh jalapeño pepper (less or more to taste), minced", new BigDecimal(0.5), eachUom));
+        shrimpTacosRecipe.addIngredient(new Ingredient("fresh lime or lemon juice", new BigDecimal(3), tableSpoonUom));
+        shrimpTacosRecipe.addIngredient(new Ingredient("kosher salt", new BigDecimal(0.5), teaSpoonUom));
+        shrimpTacosRecipe.addIngredient(new Ingredient("chopped fresh cilantro leaves (optional)", new BigDecimal(2), tableSpoonUom));
+        shrimpTacosRecipe.addIngredient(new Ingredient("corn or flour tortillas", new BigDecimal(11), eachUom));
 
         // Add categories
         shrimpTacosRecipe.getCategories().add(italianCategory);
