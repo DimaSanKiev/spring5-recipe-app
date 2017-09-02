@@ -1,12 +1,14 @@
 package guru.springframework.recipe.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Data
+@EqualsAndHashCode(exclude="ingredients")
 @Entity
 public class Recipe {
 
@@ -47,9 +49,8 @@ public class Recipe {
         notes.setRecipe(this);
     }
 
-    public Recipe addIngredient(Ingredient ingredient) {
+    public void addIngredient(Ingredient ingredient) {
         ingredient.setRecipe(this);
         this.ingredients.add(ingredient);
-        return this;
     }
 }
