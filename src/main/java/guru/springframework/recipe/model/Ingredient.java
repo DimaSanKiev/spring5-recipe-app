@@ -23,6 +23,12 @@ public class Ingredient {
         return id;
     }
 
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom) {
+        this.description = description;
+        this.amount = amount;
+        this.uom = uom;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
