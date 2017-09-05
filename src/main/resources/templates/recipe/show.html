@@ -16,6 +16,7 @@
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous" th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
 </head>
+<!--/*@thymesVar id="recipe" type="guru.springframework.recipe.model.Recipe"*/-->
 <body>
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row">
@@ -23,7 +24,6 @@
             <div class="pannel-group">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <!--/*@thymesVar id="recipe" type="guru.springframework.model.Recipe"*/-->
                         <h1 class="panel-title" th:text="${recipe.description}">Recipe Description Here!</h1>
                     </div>
                     <div class="panel-body">
@@ -33,9 +33,11 @@
                             </div>
                             <div class="col-md-9">
                                 <ul>
-                                    <li>cat one</li>
-                                    <li>cat two</li>
-                                    <li>cat three</li>
+                                    <li th:each="category : ${recipe.categories}"
+                                        th:text="${category.getCategoryName()}">cat three
+                                    </li>
+                                    <li th:remove="all">cat one</li>
+                                    <li th:remove="all">cat two</li>
                                 </ul>
                             </div>
                         </div>
@@ -44,13 +46,13 @@
                                 <h5>Prep Time:</h5>
                             </div>
                             <div class="col-md-3">
-                                <p>30 min</p>
+                                <p th:text="${recipe.getPrepTime()} + ' min'">30 min</p>
                             </div>
                             <div class="col-md-3">
                                 <h5>Difficulty:</h5>
                             </div>
                             <div class="col-md-3">
-                                <p>Easy</p>
+                                <p th:text="${recipe.getDifficulty().name()}">Easy</p>
                             </div>
                         </div>
                         <div class="row">
@@ -58,7 +60,7 @@
                                 <h5>Cooktime:</h5>
                             </div>
                             <div class="col-md-3">
-                                <p>30 min</p>
+                                <p th:text="${recipe.getCookTime()} + ' min'">30 min</p>
                             </div>
                             <div class="col-md-3">
                                 <h5>Servings:</h5>
@@ -72,13 +74,13 @@
                                 <h5>Source:</h5>
                             </div>
                             <div class="col-md-3">
-                                <p>30 min</p>
+                                <p th:text="${recipe.getSource()}" ></p>
                             </div>
                             <div class="col-md-3">
                                 <h5>URL:</h5>
                             </div>
                             <div class="col-md-3">
-                                <p>http://www.example.com</p>
+                                <p th:text="${recipe.getUrl()}">http://www.example.com</p>
                             </div>
                         </div>
                     </div>
@@ -91,9 +93,13 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <ul>
-                                    <li>1 Cup of milk</li>
-                                    <li>1 Teaspoon of chocolate</li>
-                                    <li>1 Teaspoon of Sugar</li>
+                                    <li th:each="ingredient : ${recipe.getIngredients()}"
+                                        th:text="${ingredient.getAmount()} +
+                                        ' ' + ${ingredient.getUom().getDescription()} +
+                                        ' - ' + ${ingredient.getDescription()}">1 Cup of milk
+                                    </li>
+                                    <li th:remove="all">1 Teaspoon of chocolate</li>
+                                    <li th:remove="all">1 Teaspoon of Sugar</li>
                                 </ul>
                             </div>
                         </div>
@@ -106,20 +112,13 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam ducimus earum et
-                                    hic magnam possimus quas unde. Atque consectetur consequatur cupiditate, distinctio
-                                    dolore doloremque dolores eligendi ex fuga in ipsum laboriosam molestiae
-                                    necessitatibus numquam officiis, pariatur perferendis praesentium rerum sapiente
-                                    tempore totam, unde voluptates! Adipisci asperiores atque aut culpa dignissimos id
-                                    illum inventore labore, minima natus obcaecati odit quasi quo recusandae rem saepe
-                                    sint sit tenetur voluptatem voluptatum? Aliquid amet architecto deleniti deserunt
-                                    doloribus enim expedita impedit ipsam minus nihil nobis odio quod, saepe unde vero!
-                                    Accusantium earum harum id, impedit maiores obcaecati omnis perspiciatis rem
-                                    voluptatem voluptates! Architecto atque aut autem delectus deserunt dolore
-                                    doloremque ducimus ea eos excepturi exercitationem fuga hic id, in incidunt ipsum
-                                    maxime necessitatibus nesciunt obcaecati officia optio possimus praesentium,
-                                    provident quaerat qui quidem quisquam, soluta? Enim error expedita incidunt iste
-                                    obcaecati odio quae sint?</p>
+                                <p th:text="${recipe.getDirections()}">Lorem ipsum dolor sit amet, consectetur
+                                    adipisicing elit. Dolorum exercitationem fuga libero nesciunt nostrum perferendis,
+                                    praesentium tempore tenetur ut. Ab aspernatur impedit magnam. Accusamus ea ex
+                                    explicabo ipsum maiores neque nesciunt odit, quae recusandae reprehenderit rerum
+                                    similique tenetur. A, consequatur dolorum eos error explicabo inventore itaque
+                                    laudantium libero minima natus neque porro, quis sapiente sint tempore, velit
+                                    veniam. Earum, esse.</p>
                             </div>
                         </div>
                     </div>
@@ -131,20 +130,12 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto commodi dolor
-                                    doloribus esse excepturi in iure libero magni maiores minima minus nesciunt non
-                                    numquam pariatur possimus recusandae reiciendis sunt ut voluptas, voluptate? Alias
-                                    aliquam at aut cupiditate debitis delectus eius esse et eveniet, fugiat id illo ipsa
-                                    iste labore maiores minima minus nemo odit provident quas quidem quis ratione rem
-                                    reprehenderit sed sequi similique suscipit unde vel, vitae! Ab autem culpa impedit
-                                    iste laboriosam quasi quia quibusdam, sed voluptatum! Consequuntur deserunt ducimus
-                                    exercitationem maxime minima molestiae odio repellendus. Accusantium ad aliquam
-                                    asperiores, beatae blanditiis consectetur corporis cupiditate debitis distinctio
-                                    doloribus dolorum ducimus eaque eius ex excepturi exercitationem expedita facilis
-                                    fugiat fugit incidunt ipsum iure maiores minus mollitia nemo obcaecati perferendis
-                                    quasi quod reiciendis repellat sit, suscipit tempora tempore velit veniam vero
-                                    voluptatem. Accusantium alias, impedit inventore magni minus neque veritatis vitae!
-                                    Ab aut dignissimos fuga fugiat maiores, vel velit voluptates?</p>
+                                <p th:text="${recipe.getNotes().getRecipeNotes()}">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                    elit. Consequatur dolorum eligendi fuga fugiat in inventore magni modi, nesciunt
+                                    optio quas quasi ratione voluptas! Accusamus, ad assumenda beatae ducimus iure iusto
+                                    maxime neque, nisi officia pariatur perspiciatis placeat porro quae quaerat quas
+                                    quisquam quod repellendus reprehenderit sed similique sint sunt ut velit vero
+                                    voluptates. Accusamus commodi delectus dicta fugiat nam nesciunt.</p>
                             </div>
                         </div>
                     </div>

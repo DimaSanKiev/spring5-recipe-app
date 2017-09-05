@@ -187,6 +187,10 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         chillySoupRecipe.getCategories().add(italianCategory);
         chillySoupRecipe.getCategories().add(scandinavianCategory);
 
+        chillySoupRecipe.setUrl("http://www.simplyrecipes.com/recipes/cucumber_soup/");
+        chillySoupRecipe.setServings(4);
+        chillySoupRecipe.setSource("Sipmly recipe");
+
         // Add to return list
         recipes.add(chillySoupRecipe);
 
@@ -236,6 +240,10 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         // Add categories
         shrimpTacosRecipe.getCategories().add(italianCategory);
         shrimpTacosRecipe.getCategories().add(scandinavianCategory);
+
+        shrimpTacosRecipe.setUrl("http://www.simplyrecipes.com/recipes/grilled_shrimp_tacos_with_mango_avocado_salsa/");
+        shrimpTacosRecipe.setServings(2);
+        shrimpTacosRecipe.setSource("Medium recipe");
 
         // Add to return list
         recipes.add(shrimpTacosRecipe);
