@@ -1,5 +1,6 @@
 package guru.springframework.recipe.service;
 
+import guru.springframework.recipe.command.RecipeCommand;
 import guru.springframework.recipe.converter.RecipeCommandToRecipe;
 import guru.springframework.recipe.converter.RecipeToRecipeCommand;
 import guru.springframework.recipe.model.Recipe;
@@ -33,7 +34,7 @@ public class RecipeServiceImplTest {
     }
 
     @Test
-    public void getRecipeByIdTest() throws Exception {
+    public void testGetRecipeById() throws Exception {
         Recipe recipe = new Recipe();
         recipe.setId(1L);
         Optional<Recipe> recipeOptional = Optional.of(recipe);
@@ -48,7 +49,27 @@ public class RecipeServiceImplTest {
     }
 
     @Test
-    public void getRecipes() throws Exception {
+    public void testGetRecipeCommandById() throws Exception {
+        Recipe recipe = new Recipe();
+        recipe.setId(1L);
+        Optional<Recipe> recipeOptional = Optional.of(recipe);
+
+        when(recipeRepository.findById(anyLong())).thenReturn(recipeOptional);
+
+        RecipeCommand recipeCommand = new RecipeCommand();
+        recipeCommand.setId(1L);
+
+        when(recipeToRecipeCommand.convert(any())).thenReturn(recipeCommand);
+
+        RecipeCommand commandById = recipeService.findRecipeCommandById(1L);
+
+        assertNotNull("Null recipe returned", commandById);
+        verify(recipeRepository, times(1)).findById(anyLong());
+        verify(recipeRepository, never()).findAll();
+    }
+
+    @Test
+    public void testGetRecipes() throws Exception {
         Recipe recipe = new Recipe();
         HashSet recipesData = new HashSet();
         recipesData.add(recipe);
