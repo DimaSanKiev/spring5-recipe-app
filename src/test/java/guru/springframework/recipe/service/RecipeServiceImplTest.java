@@ -21,11 +21,15 @@ import static org.mockito.Mockito.*;
 public class RecipeServiceImplTest {
 
     private RecipeService recipeService;
-    private RecipeToRecipeCommand recipeToRecipeCommand;
-    private RecipeCommandToRecipe recipeCommandToRecipe;
 
     @Mock
     private RecipeRepository recipeRepository;
+
+    @Mock
+    private RecipeToRecipeCommand recipeToRecipeCommand;
+
+    @Mock
+    private RecipeCommandToRecipe recipeCommandToRecipe;
 
     @Before
     public void setUp() throws Exception {
