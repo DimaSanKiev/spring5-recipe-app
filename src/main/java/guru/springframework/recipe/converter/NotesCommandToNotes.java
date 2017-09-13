@@ -13,14 +13,14 @@ public class NotesCommandToNotes implements Converter<NotesCommand, Notes> {
     @Synchronized
     @Nullable
     @Override
-    public Notes convert(NotesCommand source) {
-        if (source == null) {
+    public Notes convert(NotesCommand notesCommand) {
+        if (notesCommand == null) {
             return null;
         }
 
         final Notes notes = new Notes();
-        notes.setId(source.getId());
-        notes.setRecipeNotes(source.getRecipeNotes());
+        notes.setId(notesCommand.getId());
+        notes.setRecipeNotes(notesCommand.getRecipeNotes());
         return notes;
     }
 }
