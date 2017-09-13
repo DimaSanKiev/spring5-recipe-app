@@ -87,56 +87,66 @@
                 </div>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h1 class="panel-title">Ingredients</h1>
+                        <div class="row">
+                            <div class="col-md-11 ">
+                                <h1 class="panel-title">Ingredients</h1>
+                            </div>
+                            <div class="col-md-1">
+                                <a class="btn btn-default" href="#"
+                                   th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}" role="button">View</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-12">
                                 <ul>
+                                    <li th:remove="all">1 Cup of milk</li>
+                                    <li th:remove="all">1 Teaspoon of chocolate</li>
                                     <li th:each="ingredient : ${recipe.ingredients}"
                                         th:text="${(ingredient.getAmount() +
                                         ' ' + ingredient.uom.getDescription() +
                                         ' - ' + ingredient.getDescription())}">1 Teaspoon of Sugar
-                                    <li th:remove="all">1 Teaspoon of chocolate</li>
-                                    <li th:remove="all">1 Cup of milk</li>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h1 class="panel-title">Directions</h1>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p th:text="${recipe.getDirections()}">Lorem ipsum dolor sit amet, consectetur
-                                    adipisicing elit. Dolorum exercitationem fuga libero nesciunt nostrum perferendis,
-                                    praesentium tempore tenetur ut. Ab aspernatur impedit magnam. Accusamus ea ex
-                                    explicabo ipsum maiores neque nesciunt odit, quae recusandae reprehenderit rerum
-                                    similique tenetur. A, consequatur dolorum eos error explicabo inventore itaque
-                                    laudantium libero minima natus neque porro, quis sapiente sint tempore, velit
-                                    veniam. Earum, esse.</p>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h1 class="panel-title">Directions</h1>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p th:text="${recipe.getDirections()}">Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit. Dolorum exercitationem fuga libero nesciunt nostrum
+                                        perferendis,
+                                        praesentium tempore tenetur ut. Ab aspernatur impedit magnam. Accusamus ea ex
+                                        explicabo ipsum maiores neque nesciunt odit, quae recusandae reprehenderit rerum
+                                        similique tenetur. A, consequatur dolorum eos error explicabo inventore itaque
+                                        laudantium libero minima natus neque porro, quis sapiente sint tempore, velit
+                                        veniam. Earum, esse.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h1 class="panel-title">Notes</h1>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p th:text="${recipe.getNotes().getRecipeNotes()}">Lorem ipsum dolor sit amet,
-                                    consectetur adipisicing
-                                    elit. Consequatur dolorum eligendi fuga fugiat in inventore magni modi, nesciunt
-                                    optio quas quasi ratione voluptas! Accusamus, ad assumenda beatae ducimus iure iusto
-                                    maxime neque, nisi officia pariatur perspiciatis placeat porro quae quaerat quas
-                                    quisquam quod repellendus reprehenderit sed similique sint sunt ut velit vero
-                                    voluptates. Accusamus commodi delectus dicta fugiat nam nesciunt.</p>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h1 class="panel-title">Notes</h1>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p th:text="${recipe.getNotes().getRecipeNotes()}">Lorem ipsum dolor sit amet,
+                                        consectetur adipisicing
+                                        elit. Consequatur dolorum eligendi fuga fugiat in inventore magni modi, nesciunt
+                                        optio quas quasi ratione voluptas! Accusamus, ad assumenda beatae ducimus iure
+                                        iusto
+                                        maxime neque, nisi officia pariatur perspiciatis placeat porro quae quaerat quas
+                                        quisquam quod repellendus reprehenderit sed similique sint sunt ut velit vero
+                                        voluptates. Accusamus commodi delectus dicta fugiat nam nesciunt.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -144,6 +154,5 @@
             </div>
         </div>
     </div>
-</div>
 </body>
 </html>
