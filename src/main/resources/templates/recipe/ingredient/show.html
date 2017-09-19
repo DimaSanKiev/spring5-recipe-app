@@ -24,7 +24,21 @@
             <div class="panel panel-primary">
 
                 <div class="panel-heading">
-                    <h1 class="panel-title">Ingredient</h1>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h1 class="panel-title">Ingredient</h1>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn btn-default" href="#"
+                               th:href="@{'/recipe/' + ${recipeId} + '/ingredient/' +
+                               ${ingredientId} + '/update'}" role="button">Update</a>
+                        </div>
+                        <div class="col-md-1">
+                            <a class="btn btn-default" href="#"
+                               th:href="@{'/recipe/' + ${recipeId} + '/ingredient/' +
+                               ${ingredientId} + '/delete'}" role="button">Delete</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="panel-body">
 
