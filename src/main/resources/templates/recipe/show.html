@@ -51,7 +51,8 @@
                             </div>
                             <div class="col-md-6">
                                 <img src="../../static/images/cucumber-soup-horiz-a-1800-X.jpg"
-                                     width="300px">
+                                     th:src="@{'/recipe/' + ${recipe.id} + '/recipeimage'}"
+                                     width="300">
                             </div>
                         </div>
                         <div class="row">
