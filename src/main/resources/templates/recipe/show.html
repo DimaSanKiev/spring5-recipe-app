@@ -24,14 +24,23 @@
             <div class="pannel-group">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h1 class="panel-title" th:text="${recipe.description}">Recipe Description Here!</h1>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h1 class="panel-title" th:text="${recipe.description}">Recipe Description Here!</h1>
+                            </div>
+
+                            <div class="col-md-1">
+                                <a class="btn btn-default" href="#"
+                                   th:href="@{'/recipe/' + ${recipe.id} + '/image'}" role="button">Change Image</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-3">
                                 <h5>Categories:</h5>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-md-3">
                                 <ul>
                                     <li th:each="category : ${recipe.categories}"
                                         th:text="${category.getCategoryName()}">cat three
@@ -39,6 +48,10 @@
                                     <li th:remove="all">cat one</li>
                                     <li th:remove="all">cat two</li>
                                 </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="../../static/images/cucumber-soup-horiz-a-1800-X.jpg"
+                                     width="300px">
                             </div>
                         </div>
                         <div class="row">
