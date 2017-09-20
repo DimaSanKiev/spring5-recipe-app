@@ -1,6 +1,7 @@
 package guru.springframework.recipe.controller;
 
 import guru.springframework.recipe.command.RecipeCommand;
+import guru.springframework.recipe.exception.NotFoundException;
 import guru.springframework.recipe.model.Recipe;
 import guru.springframework.recipe.service.RecipeService;
 import org.junit.Before;
@@ -50,6 +51,17 @@ public class RecipeControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("recipe/show"))
                 .andExpect(model().attributeExists("recipe"));
+    }
+
+    @Test
+    public void testGetRecipeNotFound() throws Exception {
+        Recipe recipe = new Recipe();
+        recipe.setId(1L);
+
+        when(recipeService.findById(anyLong())).thenThrow(NotFoundException.class);
+
+        mockMvc.perform(get("/recipe/1/show"))
+                .andExpect(status().isNotFound());
     }
 
     @Test
