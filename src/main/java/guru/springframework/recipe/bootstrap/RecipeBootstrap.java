@@ -154,7 +154,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 
         // Chilled Cucumber Soup, http://www.simplyrecipes.com/recipes/cucumber_soup/
         Recipe chillySoupRecipe = new Recipe();
-        chillySoupRecipe.setDescription("Cool and refreshing Chilled Cucumber Soup! Takes only 10 minutes to make, no cooking, just blending.");
+        chillySoupRecipe.setDescription("Cool and refreshing Chilled Cucumber Soup!");
         chillySoupRecipe.setPrepTime(10);
         chillySoupRecipe.setCookTime(0);
         chillySoupRecipe.setDifficulty(Difficulty.EASY);
