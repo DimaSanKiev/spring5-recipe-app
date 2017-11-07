@@ -4,4 +4,4 @@
 
 [![codecov](https://codecov.io/gh/DimaSanKiev/spring5-recipe-app/branch/master/graph/badge.svg)](https://codecov.io/gh/DimaSanKiev/spring5-recipe-app)
 
-This repository is for an example of Spring Framework 5 application.
+This repository is for an example of Spring Framework 5 application, created following John Thompson's course [Spring Framework 5: Beginner to Guru](https://www.udemy.com/spring-framework-5-beginner-to-guru/).
